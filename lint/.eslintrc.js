@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 const importRestrictions = require('./importRestrictions');
 const path = require('path');
 
@@ -6,16 +5,7 @@ module.exports = {
     root: true,
     parserOptions: {
         ecmaVersion: 2020,
-        sourceType: 'module',
-        ecmaFeatures: {
-            jsx: true
-        }
-    },
-    parser: 'babel-eslint',
-    settings: {
-        react: {
-            version: 'detect'
-        }
+        sourceType: 'module'
     },
     env: {
         browser: true,
@@ -24,9 +14,6 @@ module.exports = {
     },
     extends: [
         'eslint:recommended',
-        'plugin:react/recommended',
-        'plugin:react-hooks/recommended',
-        'plugin:jsx-a11y/recommended',
         'plugin:prettier/recommended'
     ],
     rules: {
@@ -40,9 +27,7 @@ module.exports = {
         'no-restricted-imports': [
             'error',
             importRestrictions
-        ],
-        'react/display-name': 0,
-        'react-hooks/exhaustive-deps': 'error'
+        ]
     },
     overrides: [
         {
@@ -55,6 +40,10 @@ module.exports = {
                         project: path.resolve(process.cwd(), 'tsconfig.json')
                     }
                 }
+            },
+            rules: {
+                '@typescript-eslint/no-unused-vars': 'error',
+                '@typescript-eslint/no-explicit-any': 'error'
             }
         }
     ]

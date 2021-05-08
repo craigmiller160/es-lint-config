@@ -1,5 +1,7 @@
+const baseConfig = require('./.eslintrc');
+const deepmerge = require('deepmerge');
 
-module.exports = {
+const reactConfig = {
     parserOptions: {
         ecmaFeatures: {
             jsx: true
@@ -21,3 +23,5 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error'
     }
 };
+
+module.exports = deepmerge(baseConfig, reactConfig);
