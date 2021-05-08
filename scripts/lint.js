@@ -3,7 +3,7 @@ const path = require('path');
 const { prettierSetup, eslintSetup } = require('./files');
 
 const execute = async () => {
-    eslintSetup();
+    eslintSetup(); // TODO need to customize this so that the react arg can be passed in
     prettierSetup();
     console.log('Running eslint validation');
 
