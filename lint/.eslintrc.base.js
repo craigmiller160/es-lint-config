@@ -43,6 +43,10 @@ module.exports = {
                         project: path.resolve(process.cwd(), 'tsconfig.json')
                     }
                 }
+            },
+            rules: {
+                '@typescript-eslint/no-unused-vars': 'error',
+                '@typescript-eslint/no-explicit-any': 'error'
             }
         }
     ]
