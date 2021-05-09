@@ -7,12 +7,20 @@ const filePath = path.resolve(__dirname, '..', 'scripts', 'lint');
 
 const commands = [
     {
-        name: 'default',
-        description: 'Run default eslint/prettier config'
+        name: 'js',
+        description: 'Run JavaScript eslint/prettier config'
     },
     {
-        name: 'react',
-        description: 'Run React eslint/prettier config'
+        name: 'ts',
+        description: 'Run TypeScript eslint/prettier config'
+    },
+    {
+        name: 'react-js',
+        description: 'Run React JavaScript eslint/prettier config'
+    },
+    {
+        name: 'react-ts',
+        description: 'Run React TypeScript eslint/prettier config'
     }
 ];
 
