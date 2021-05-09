@@ -1,6 +1,9 @@
 #!/usr/bin/env node
 
 const spawn = require('cross-spawn');
+const path = require('path');
+
+const filePath = path.resolve(__dirname, '..', 'scripts', 'lint');
 
 const commands = [
     {
@@ -32,7 +35,7 @@ const execute = () => {
     const result = spawn.sync('cross-env', [
         `ES_LINT_CONFIG_TYPE=${command.name}`,
         'node',
-        command.file,
+        filePath,
         ...otherArgs
     ], { stdio: 'inherit' });
     process.exit(result.status);
