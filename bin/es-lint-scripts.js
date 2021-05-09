@@ -21,6 +21,14 @@ const commands = [
     {
         name: 'react-ts',
         description: 'Run React TypeScript eslint/prettier config'
+    },
+    {
+        name: 'vue-js',
+        description: 'Run VueJS JavaScript eslint/prettier config'
+    },
+    {
+        name: 'vue-ts',
+        description: 'Run VueJS TypeScript eslint/prettier config'
     }
 ];
 
