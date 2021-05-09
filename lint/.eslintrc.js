@@ -23,8 +23,7 @@ const getReactTsConfig = () => {
 const getVueJsConfig = () => deepmerge(baseConfig, vueBaseConfig);
 const getVueTsConfig = () => {
     const baseAndVue = deepmerge(baseConfig, vueBaseConfig);
-    const baseAndVueAndTs = deepmerge(baseAndVue, tsConfig);
-    return deepmerge(baseAndVueAndTs, vueTsConfig);
+    return deepmerge(baseAndVue, vueTsConfig);
 };
 
 const getConfig = () => {
