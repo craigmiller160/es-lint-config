@@ -35,7 +35,7 @@ const commands = [
         description: 'Run VueJS JavaScript eslint/prettier config'
     },
     {
-        name: VUE_TS_CONFIG
+        name: VUE_TS_CONFIG,
         description: 'Run VueJS TypeScript eslint/prettier config'
     }
 ];
