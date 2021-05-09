@@ -4,6 +4,9 @@
   "publishConfig": {
     "registry": "https://craigmiller160.ddns.net:30003/repository/npm-private/"
   },
+  "bin": {
+    "es-lint-scripts": "./bin/es-lint-scripts.js"
+  },
   "files": [
     "lint",
     "scripts",

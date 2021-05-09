@@ -1,4 +1,5 @@
-const lint = require('../scripts/lint');
+#!/usr/bin/env node
+
 const spawn = require('spawn');
 
 const commands = [
