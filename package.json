@@ -7,6 +7,9 @@
   "bin": {
     "es-lint-scripts": "./bin/es-lint-scripts.js"
   },
+  "scripts": {
+    "build": "echo 'No build needed'"
+  },
   "files": [
     "lint",
     "scripts",
