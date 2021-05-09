@@ -1,50 +1,14 @@
-const importRestrictions = require('./importRestrictions');
-const path = require('path');
+const baseConfig = require('./.eslintrc.base');
+const reactConfig = require('./.eslintrc.react');
+const deepmerge = require('deepmerge');
 
-module.exports = {
-    root: true,
-    parserOptions: {
-        ecmaVersion: 2020,
-        sourceType: 'module'
-    },
-    env: {
-        browser: true,
-        amd: true,
-        node: true
-    },
-    extends: [
-        'eslint:recommended',
-        'plugin:prettier/recommended'
-    ],
-    rules: {
-        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
-        'no-console': [
-            'error',
-            {
-                allow: ['error']
-            }
-        ],
-        'no-restricted-imports': [
-            'error',
-            importRestrictions
-        ]
-    },
-    overrides: [
-        {
-            files: ['**/*.ts?(x)'],
-            parser: '@typescript-eslint/parser',
-            extends: ['plugin:@typescript-eslint/recommended'],
-            settings: {
-                'import/resolver': {
-                    typescript: {
-                        project: path.resolve(process.cwd(), 'tsconfig.json')
-                    }
-                }
-            },
-            rules: {
-                '@typescript-eslint/no-unused-vars': 'error',
-                '@typescript-eslint/no-explicit-any': 'error'
-            }
-        }
-    ]
-};
+let config;
+switch (process.env.ES_LINT_CONFIG_TYPE) {
+    case 'react':
+        config = deepmerge(baseConfig, reactConfig);
+        break;
+    default:
+        config = baseConfig;
+}
+
+module.exports = config;
