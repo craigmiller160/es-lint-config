@@ -7,5 +7,9 @@ module.exports = {
     },
     extends: [
         'plugin:vue/vue3-essential'
-    ]
+    ],
+    rules: {
+        // 'vue/script-indent': ['error', 4, { baseIndent: 1 }]
+        'vue/script-indent': 0
+    }
 };
