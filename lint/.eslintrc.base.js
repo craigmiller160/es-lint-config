@@ -9,11 +9,15 @@ module.exports = {
     env: {
         browser: true,
         amd: true,
-        node: true
+        node: true,
+        'jest/globals': true
     },
     extends: [
         'eslint:recommended',
         'plugin:prettier/recommended'
+    ],
+    plugins: [
+        'jest'
     ],
     rules: {
         'prettier/prettier': ['error', {}, { usePrettierrc: true }],
