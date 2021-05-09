@@ -5,7 +5,7 @@ module.exports = {
             jsx: true
         }
     },
-    parser: 'babel-eslint',
+    parser: 'babel-eslint', // TODO if needed, change to @babel/eslint-parser
     settings: {
         react: {
             version: 'detect'
