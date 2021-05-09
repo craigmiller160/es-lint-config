@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-const spawn = require('spawn');
+const spawn = require('cross-spawn');
 
 const commands = [
     {
