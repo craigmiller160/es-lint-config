@@ -4,6 +4,14 @@ const tsConfig = require('./.eslintrc.typescript');
 const vueBaseConfig = require('./.eslintrc.vue-base');
 const vueTsConfig = require('./.eslintrc.vue-ts');
 const deepmerge = require('deepmerge');
+const {
+    JS_CONFIG,
+    TS_CONFIG,
+    REACT_TS_CONFIG,
+    REACT_JS_CONFIG,
+    VUE_TS_CONFIG,
+    VUE_JS_CONFIG
+} = require('./constants');
 
 const getJsConfig = () => baseConfig;
 const getTsConfig = () => deepmerge(baseConfig, tsConfig);
@@ -29,17 +37,17 @@ const getVueTsConfig = () => deepmerge(
 
 const getConfig = () => {
     switch (process.env.ES_LINT_CONFIG_TYPE) {
-        case 'js':
+        case JS_CONFIG:
             return getJsConfig();
-        case 'ts':
+        case TS_CONFIG:
             return getTsConfig();
-        case 'react-js':
+        case REACT_JS_CONFIG:
             return getReactJsConfig();
-        case 'react-ts':
+        case REACT_TS_CONFIG:
             return getReactTsConfig();
-        case 'vue-js':
+        case VUE_JS_CONFIG:
             return getVueJsConfig();
-        case 'vue-ts':
+        case VUE_TS_CONFIG:
             return getVueTsConfig();
         default:
             throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);

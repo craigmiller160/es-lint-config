@@ -2,32 +2,40 @@
 
 const spawn = require('cross-spawn');
 const path = require('path');
+const {
+    JS_CONFIG,
+    TS_CONFIG,
+    REACT_TS_CONFIG,
+    REACT_JS_CONFIG,
+    VUE_TS_CONFIG,
+    VUE_JS_CONFIG
+} = require('../lint/constants');
 
 const filePath = path.resolve(__dirname, '..', 'scripts', 'lint');
 
 const commands = [
     {
-        name: 'js',
+        name: JS_CONFIG,
         description: 'Run JavaScript eslint/prettier config'
     },
     {
-        name: 'ts',
+        name: TS_CONFIG,
         description: 'Run TypeScript eslint/prettier config'
     },
     {
-        name: 'react-js',
+        name: REACT_JS_CONFIG,
         description: 'Run React JavaScript eslint/prettier config'
     },
     {
-        name: 'react-ts',
+        name: REACT_TS_CONFIG,
         description: 'Run React TypeScript eslint/prettier config'
     },
     {
-        name: 'vue-js',
+        name: VUE_JS_CONFIG,
         description: 'Run VueJS JavaScript eslint/prettier config'
     },
     {
-        name: 'vue-ts',
+        name: VUE_TS_CONFIG
         description: 'Run VueJS TypeScript eslint/prettier config'
     }
 ];
