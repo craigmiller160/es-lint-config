@@ -16,24 +16,16 @@ const {
 const getJsConfig = () => baseConfig;
 const getTsConfig = () => deepmerge(baseConfig, tsConfig);
 const getReactJsConfig = () => deepmerge(baseConfig, reactConfig);
-const getReactTsConfig = () => deepmerge(
-    deepmerge(
-        baseConfig,
-        tsConfig
-    ),
-    reactConfig
-);
+const getReactTsConfig = () => {
+    const baseAndTs = deepmerge(baseConfig, tsConfig);
+    return deepmerge(baseAndTs, reactConfig);
+};
 const getVueJsConfig = () => deepmerge(baseConfig, vueBaseConfig);
-const getVueTsConfig = () => deepmerge(
-    deepmerge(
-        deepmerge(
-            baseConfig,
-            vueBaseConfig
-        ),
-        tsConfig
-    ),
-    vueTsConfig
-)
+const getVueTsConfig = () => {
+    const baseAndVue = deepmerge(baseConfig, vueBaseConfig);
+    const baseAndVueAndTs = deepmerge(baseAndVue, tsConfig);
+    return deepmerge(baseAndVueAndTs, vueTsConfig);
+};
 
 const getConfig = () => {
     switch (process.env.ES_LINT_CONFIG_TYPE) {
