@@ -5,28 +5,45 @@ const vueBaseConfig = require('./.eslintrc.vue-base');
 const vueTsConfig = require('./.eslintrc.vue-ts');
 const deepmerge = require('deepmerge');
 
-let config;
-switch (process.env.ES_LINT_CONFIG_TYPE) {
-    case 'js':
-        config = baseConfig;
-        break;
-    case 'ts':
-        config = deepmerge(baseConfig, tsConfig);
-        break;
-    case 'react-js':
-        config = deepmerge(baseConfig, reactConfig);
-        break;
-    case 'react-ts':
-        config = deepmerge(deepmerge(baseConfig, tsConfig), reactConfig);
-        break;
-    case 'vue-js':
-        config = deepmerge(baseConfig, vueBaseConfig);
-        break;
-    case 'vue-ts':
-        config = deepmerge(deepmerge(baseConfig, vueBaseConfig), vueTsConfig);
-        break;
-    default:
-        throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);
-}
+const getJsConfig = () => baseConfig;
+const getTsConfig = () => deepmerge(baseConfig, tsConfig);
+const getReactJsConfig = () => deepmerge(baseConfig, reactConfig);
+const getReactTsConfig = () => deepmerge(
+    deepmerge(
+        baseConfig,
+        tsConfig
+    ),
+    reactConfig
+);
+const getVueJsConfig = () => deepmerge(baseConfig, vueBaseConfig);
+const getVueTsConfig = () => deepmerge(
+    deepmerge(
+        deepmerge(
+            baseConfig,
+            vueBaseConfig
+        ),
+        tsConfig
+    ),
+    vueTsConfig
+)
 
-module.exports = config;
+const getConfig = () => {
+    switch (process.env.ES_LINT_CONFIG_TYPE) {
+        case 'js':
+            return getJsConfig();
+        case 'ts':
+            return getTsConfig();
+        case 'react-js':
+            return getReactJsConfig();
+        case 'react-ts':
+            return getReactTsConfig();
+        case 'vue-js':
+            return getVueJsConfig();
+        case 'vue-ts':
+            return getVueTsConfig();
+        default:
+            throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);
+    }
+};
+
+module.exports = getConfig();
