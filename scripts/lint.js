@@ -1,6 +1,7 @@
 const { ESLint } = require('eslint');
 const path = require('path');
 const { prettierSetup, eslintSetup } = require('./files');
+const getExtensions = require('./extensions');
 
 const execute = async () => {
     eslintSetup();
@@ -15,7 +16,8 @@ const execute = async () => {
             'problem',
             'suggestion',
             'layout'
-        ]
+        ],
+        extensions: getExtensions()
     });
 
     const results = await eslint.lintFiles([
