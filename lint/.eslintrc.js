@@ -3,6 +3,7 @@ const reactConfig = require('./.eslintrc.react');
 const tsConfig = require('./.eslintrc.typescript');
 const vueBaseConfig = require('./.eslintrc.vue-base');
 const vueTsConfig = require('./.eslintrc.vue-ts');
+const svelteConfig = require('./.eslintrc.svelte');
 const deepmerge = require('deepmerge');
 const {
     JS_CONFIG,
@@ -10,7 +11,8 @@ const {
     REACT_TS_CONFIG,
     REACT_JS_CONFIG,
     VUE_TS_CONFIG,
-    VUE_JS_CONFIG
+    VUE_JS_CONFIG,
+    SVELTE_CONFIG
 } = require('./constants');
 
 const getJsConfig = () => baseConfig;
@@ -25,6 +27,10 @@ const getVueTsConfig = () => {
     const baseAndVue = deepmerge(baseConfig, vueBaseConfig);
     return deepmerge(baseAndVue, vueTsConfig);
 };
+const getSvelteConfig = () => {
+    const baseAndTs = deepmerge(baseConfig, tsConfig);
+    return deepmerge(baseAndTs, svelteConfig);
+}
 
 const getConfig = () => {
     switch (process.env.ES_LINT_CONFIG_TYPE) {
@@ -40,6 +46,8 @@ const getConfig = () => {
             return getVueJsConfig();
         case VUE_TS_CONFIG:
             return getVueTsConfig();
+        case SVELTE_CONFIG:
+            return getSvelteConfig();
         default:
             throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);
     }
