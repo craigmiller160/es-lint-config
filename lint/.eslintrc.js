@@ -47,7 +47,7 @@ const getConfig = () => {
         case VUE_TS_CONFIG:
             return getVueTsConfig();
         case SVELTE_CONFIG:
-            return getSvelteConfig();
+            return getSvelteConfig(); // TODO split out ts stuff
         default:
             throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);
     }

@@ -39,6 +39,7 @@ const commands = [
         name: VUE_TS_CONFIG,
         description: 'Run VueJS TypeScript eslint/prettier config'
     },
+    // TODO split out ts stuff
     {
         name: SVELTE_CONFIG,
         description: 'Run Svelte eslint/prettier config'

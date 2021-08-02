@@ -1,4 +1,5 @@
 
+// TODO split out ts stuff
 module.exports = {
     overrides: [
         {

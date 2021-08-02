@@ -4,7 +4,8 @@ const {
     REACT_TS_CONFIG,
     REACT_JS_CONFIG,
     VUE_TS_CONFIG,
-    VUE_JS_CONFIG
+    VUE_JS_CONFIG,
+    SVELTE_CONFIG
 } = require('../lint/constants');
 
 const getJsExtensions = () => ([
@@ -39,6 +40,13 @@ const getVueTsExtensions = () => ([
     '.vue'
 ]);
 
+// TODO split out TS stuff
+const getSvelteExtensions = () => ([
+    '.js',
+    '.ts',
+    '.svelte'
+]);
+
 const getExtensions = () => {
     switch (process.env.ES_LINT_CONFIG_TYPE) {
         case JS_CONFIG:
@@ -53,6 +61,8 @@ const getExtensions = () => {
             return getVueJsExtensions();
         case VUE_TS_CONFIG:
             return getVueTsExtensions();
+        case SVELTE_CONFIG:
+            return getSvelteExtensions();
         default:
             throw new Error(`Invalid es-lint-config type: ${process.env.ES_LINT_CONFIG_TYPE}`);
     }
