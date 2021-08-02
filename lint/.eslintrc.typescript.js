@@ -11,11 +11,11 @@ module.exports = {
             ],
             settings: {
                 // TODO remove this if the parserOptions stuff stays
-                'import/resolver': {
-                    typescript: {
-                        project: path.resolve(process.cwd(), 'tsconfig.json')
-                    }
-                }
+                // 'import/resolver': {
+                //     typescript: {
+                //         project: path.resolve(process.cwd(), 'tsconfig.json')
+                //     }
+                // }
             },
             parserOptions: {
                 // TODO concerned about this in other projects
@@ -24,7 +24,8 @@ module.exports = {
             },
             rules: {
                 '@typescript-eslint/no-unused-vars': 'error',
-                '@typescript-eslint/no-explicit-any': 'error'
+                '@typescript-eslint/no-explicit-any': 'error',
+                '@typescript-eslint/restrict-template-expressions': 0
             }
         }
     ]
