@@ -707,6 +707,11 @@ eslint-plugin-react@^7.23.2:
     resolve "^2.0.0-next.3"
     string.prototype.matchall "^4.0.4"
 
+eslint-plugin-svelte3@^3.2.0:
+  version "3.2.0"
+  resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/eslint-plugin-svelte3/-/eslint-plugin-svelte3-3.2.0.tgz#a6deb4ead4b31a647ea88a3823d7c96578f74683"
+  integrity sha512-qdWB1QN21dEozsJFdR8XlEhMnsS6aKHjsXWuNmchYwxoet5I6QdCr1Xcq62++IzRBMCNCeH4waXqSOAdqrZzgA==
+
 eslint-plugin-vue@^7.9.0:
   version "7.9.0"
   resolved "https://craigmiller160.ddns.net:30003/repository/npm-group/eslint-plugin-vue/-/eslint-plugin-vue-7.9.0.tgz#f8e83a2a908f4c43fc8304f5401d4ff671f3d560"
