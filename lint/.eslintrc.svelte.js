@@ -9,6 +9,11 @@ module.exports = {
             processor: 'svelte3/svelte3'
         }
     ],
+    parserOptions: {
+        extraFileExtensions: [
+            '.svelte'
+        ]
+    },
     plugins: [
         'svelte3'
     ],
