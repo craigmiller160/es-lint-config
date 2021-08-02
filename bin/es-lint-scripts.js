@@ -8,7 +8,8 @@ const {
     REACT_TS_CONFIG,
     REACT_JS_CONFIG,
     VUE_TS_CONFIG,
-    VUE_JS_CONFIG
+    VUE_JS_CONFIG,
+    SVELTE_CONFIG
 } = require('../lint/constants');
 
 const filePath = path.resolve(__dirname, '..', 'scripts', 'lint');
@@ -37,6 +38,10 @@ const commands = [
     {
         name: VUE_TS_CONFIG,
         description: 'Run VueJS TypeScript eslint/prettier config'
+    },
+    {
+        name: SVELTE_CONFIG,
+        description: 'Run Svelte eslint/prettier config'
     }
 ];
 
