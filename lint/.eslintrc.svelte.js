@@ -6,6 +6,7 @@ module.exports = {
             files: [
                 '*.svelte'
             ],
+            parser: '@typescript-eslint/parser',
             processor: 'svelte3/svelte3'
         }
     ],
